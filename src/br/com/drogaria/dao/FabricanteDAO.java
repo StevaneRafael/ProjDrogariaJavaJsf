@@ -213,6 +213,7 @@ public class FabricanteDAO {
 		
 		*/
 		
+		/*
 		Fabricante f1 = new Fabricante();
 		f1.setDescricao("des");
 		
@@ -227,7 +228,7 @@ public class FabricanteDAO {
 			System.out.println("Ocorreu um erro ao tentar pesquisar os fabricantes");
 			e.printStackTrace();
 		}
-		
+		*/
 		
 		
 	}
