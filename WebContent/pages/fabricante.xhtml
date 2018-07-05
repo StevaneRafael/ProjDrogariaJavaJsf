@@ -11,7 +11,19 @@
 		<ui:include src="/includes/menuPrincipal.xhtml" />
 	</ui:define>
 
-	<ui:define name="conteudo"
-	></ui:define>
+	<ui:define name="conteudo">
+		<p:dataTable emptyMessage="Nenhum registro encontrado."
+				value="#{MBFabricante.itens}"
+				var="item">
+			
+			<p:column headerText="Código">
+				<h:outputText value="#{item.codigo}" />
+			</p:column>
+			
+			<p:column headerText="Descrição">
+				<h:outputText value="#{item.descricao}" />
+			</p:column>			
+		</p:dataTable>
+	</ui:define>
 	
 </ui:composition>
