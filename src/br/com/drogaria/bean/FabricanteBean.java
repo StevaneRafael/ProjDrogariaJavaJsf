@@ -48,19 +48,40 @@ public class FabricanteBean {
 	}
 
 	public void prepararNovo() {
-		fabricante = new Fabricante();			
+		fabricante = new Fabricante();
 	}
-	
+
 	public void novo() {
 		try {
-			FabricanteDAO dao = new FabricanteDAO();			
+			FabricanteDAO dao = new FabricanteDAO();
 			dao.salvar(fabricante);
-			
-			//Recarrengando os dados da ListDataModel
+
+			// Recarrengando os dados da ListDataModel
 			ArrayList<Fabricante> lista = dao.listar();
 			itens = new ListDataModel<Fabricante>(lista);
-			
+
 			JSFUtil.adicionarMensagemSucesso("Fabricante salvo com sucesso!");
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			JSFUtil.adicionarMensagemErro(ex.getMessage());
+		}
+
+	}
+
+	public void prepararExcluir() {
+		// Sabe a linha que foi clicado,
+		fabricante = itens.getRowData();
+	}
+
+	public void excluir() {
+		try {
+			FabricanteDAO dao = new FabricanteDAO();
+			dao.excluir(fabricante);
+
+			ArrayList<Fabricante> lista = dao.listar();
+			itens = new ListDataModel<Fabricante>(lista);
+
+			JSFUtil.adicionarMensagemSucesso("Fabricante removido com sucesso.");
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			JSFUtil.adicionarMensagemErro(ex.getMessage());
