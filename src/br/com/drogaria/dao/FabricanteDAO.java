@@ -10,8 +10,6 @@ import br.com.drogaria.domain.Fabricante;
 import br.com.drogaria.factory.ConexaoFactory;
 
 public class FabricanteDAO {
-	private Fabricante retorno;
-
 	public void salvar(Fabricante f) throws SQLException {
 		StringBuilder sql = new StringBuilder();
 		sql.append("INSERT INTO fabricante ");
@@ -24,7 +22,6 @@ public class FabricanteDAO {
 		comando.setString(1, f.getDescricao());
 
 		comando.executeUpdate();
-
 	}
 
 	public void excluir(Fabricante f) throws SQLException {
