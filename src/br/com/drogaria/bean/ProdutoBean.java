@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import br.com.drogaria.dao.FabricanteDAO;
 import br.com.drogaria.dao.ProdutoDAO;
 import br.com.drogaria.domain.Fabricante;
 import br.com.drogaria.domain.Produto;
@@ -58,5 +59,16 @@ public class ProdutoBean {
 		}
 	}
 	
-	
+	public void prepararNovo() {
+		try {
+		produto = new Produto();
+		
+		FabricanteDAO dao = new FabricanteDAO();
+		
+		comboFabricantes = dao.listar();
+		}catch (SQLException ex) {
+			ex.printStackTrace();
+			JSFUtil.adicionarMensagemErro(ex.getMessage());
+		}
+	}
 }
