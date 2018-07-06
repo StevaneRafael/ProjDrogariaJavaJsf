@@ -61,4 +61,18 @@ public class ProdutoDAO {
 	
 	}
 	
+	public void excluir(Produto p) throws SQLException{
+		StringBuilder sql = new StringBuilder();
+		sql.append("DELETE FROM produto ");
+		sql.append("WHERE codigo = ? ");
+		
+		Connection conexao = ConexaoFactory.conectar();
+		
+		PreparedStatement comando = conexao.prepareStatement(sql.toString());
+		comando.setLong(1, p.getCodigo());
+		
+		comando.executeUpdate();
+				
+	}
+	
 }
