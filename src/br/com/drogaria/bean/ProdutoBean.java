@@ -14,13 +14,22 @@ import br.com.drogaria.util.JSFUtil;
 @ViewScoped
 public class ProdutoBean {
 	private ArrayList<Produto> itens;
-
+	private ArrayList<Produto> itensFiltrados;
+	
 	public ArrayList<Produto> getItens() {
 		return itens;
 	}
 
 	public void setItens(ArrayList<Produto> itens) {
 		this.itens = itens;
+	}
+	
+	public ArrayList<Produto> getItensFiltrados() {
+		return itensFiltrados;
+	}
+	
+	public void setItensFiltrados(ArrayList<Produto> itensFiltrados) {
+		this.itensFiltrados = itensFiltrados;
 	}
 	
 	public void carregarListagem() {
@@ -32,4 +41,6 @@ public class ProdutoBean {
 			JSFUtil.adicionarMensagemErro(ex.getMessage());
 		}
 	}
+	
+	
 }
