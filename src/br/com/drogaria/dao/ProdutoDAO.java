@@ -75,4 +75,28 @@ public class ProdutoDAO {
 				
 	}
 	
+	public void editar(Produto p) throws SQLException{
+		StringBuilder sql = new StringBuilder();
+		sql.append("UPDATE produto ");
+		sql.append("SET descricao = ?, quantidade = ?, preco = ?, fabricante_codigo = ? ");
+		sql.append("WHERE codigo = ? ");
+		
+		Connection conexao = ConexaoFactory.conectar();
+		
+		PreparedStatement comando = conexao.prepareStatement(sql.toString());
+		comando.setString(1, p.getDescricao());
+		comando.setLong(2, p.getQuantidade());
+		comando.setDouble(3, p.getPreco());
+		comando.setLong(4, p.getFabricante().getCodigo());
+		comando.setLong(5, p.getCodigo());
+		
+		comando.executeUpdate();
+		
+		
+		
+		
+		
+	}
+	
+	
 }

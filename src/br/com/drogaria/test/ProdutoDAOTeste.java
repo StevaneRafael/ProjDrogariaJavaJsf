@@ -46,12 +46,31 @@ public class ProdutoDAOTeste {
 	}
 	
 	@Test
+	@Ignore
 	public void excluir() throws SQLException {
 		Produto p = new Produto();
 		p.setCodigo(5L);
 		
 		ProdutoDAO dao = new ProdutoDAO();
 		dao.excluir(p);
+	}
+	
+	@Test
+	public void editar() throws SQLException{
+		Produto p = new Produto();
+		p.setCodigo(5L);
+		p.setDescricao("Cataflan Pomada com 60 Gramas");
+		p.setQuantidade(20L);
+		p.setPreco(6.30);
+		
+		Fabricante f = new Fabricante();
+		f.setCodigo(6L);
+		
+		p.setFabricante(f);
+		
+		ProdutoDAO dao = new ProdutoDAO();
+		dao.editar(p);
+		
 	}
 	
 	
