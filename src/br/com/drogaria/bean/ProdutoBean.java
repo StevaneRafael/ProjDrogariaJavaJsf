@@ -71,4 +71,18 @@ public class ProdutoBean {
 			JSFUtil.adicionarMensagemErro(ex.getMessage());
 		}
 	}
+	
+	public void novo() {
+		try {
+			ProdutoDAO dao = new ProdutoDAO();
+			dao.salvar(produto);
+		
+			itens = dao.listar();
+		
+			JSFUtil.adicionarMensagemSucesso("Produto salvo com sucesso.");
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			JSFUtil.adicionarMensagemErro(ex.getMessage());
+		}
+	}	
 }
