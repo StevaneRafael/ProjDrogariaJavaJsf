@@ -32,12 +32,14 @@
 					<h:outputText value="#{item.descricao}"/>
 				</p:column>					
 				
-				<p:column headerText="Quantidade" filterBy="#{item.quantidade}" sortBy="#{item.quantidade}">
+				<p:column headerText="Quantidade" sortBy="#{item.quantidade}">
 					<h:outputText value="#{item.quantidade}"/>
 				</p:column>
 				
-				<p:column headerText="Preço" filterBy="#{item.preco}" sortBy="#{item.preco}">
-					<h:outputText value="#{item.preco}"/>
+				<p:column headerText="Preço" sortBy="#{item.preco}">
+					<h:outputText value="#{item.preco}">
+						<f:convertNumber pattern="0.00" />
+					</h:outputText>
 				</p:column>
 				
 				<p:column headerText="Fabricante" filterBy="#{item.fabricante.descricao}" sortBy="#{item.fabricante.descricao}">
@@ -81,7 +83,10 @@
 					
 					<p:outputLabel for="txtPrecoProdNovo" value="Preço: "/>
 					<p:inputText id="txtPrecoProdNovo" value="#{MBProduto.produto.preco}" size="10" 
-								 required="true" requiredMessage="O campo preço é obrigatório." />															
+								 required="true" requiredMessage="O campo preço é obrigatório."
+								 converterMessage="Informe um valor válido para o campo preço.">
+						<f:convertNumber />
+					</p:inputText>															
 				
 					<p:outputLabel for="cbFabProdNovo" value="Fabricante: "/>
 					<p:selectOneMenu id="cbFabProdNovo" value="#{MBProduto.produto.fabricante.codigo}" filter="true"
