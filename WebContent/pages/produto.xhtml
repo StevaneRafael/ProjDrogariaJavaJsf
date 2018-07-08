@@ -96,7 +96,9 @@
 									 update=":msgGlobal :frmProdListagem:tblProdListagem" 
 									 oncomplete="verificar(xhr, status, args, 'dlgProdNovo', 'tabelaProdListagens');"/>
 					<p:commandButton value="Cancelar" process="@this" 
-									 oncomplete="PF('dlgProdNovo').hide();" />				
+									 oncomplete="PF('dlgProdNovo').hide();">
+				    	<p:resetInput target="pnlProdNovo" />
+					</p:commandButton>				
 				</h:panelGrid>								
 			</h:form>
 		</p:dialog>	
@@ -164,7 +166,9 @@
 									 update=":msgGlobal :frmProdListagem:tblProdListagem" 
 									 oncomplete="verificar(xhr, status, args, 'dlgProdEditar', 'tabelaProdListagem');"/>
 					<p:commandButton value="Cancelar" process="@this" 
-									 oncomplete="PF('dlgProdEditar').hide();" />				
+									 oncomplete="PF('dlgProdEditar').hide();">
+						<p:resetInput target="pnlProdEditar" />
+					</p:commandButton>					 				
 				</h:panelGrid>								
 			</h:form>
 		 </p:dialog>	
