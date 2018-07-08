@@ -73,7 +73,7 @@
 						actionListener="#{MBFabricante.novo}"
 						oncomplete="verificar(xhr, status, args, 'dlgFabNovo', 'tabelaFabricantes');"
 						update=":frmFabListagem:tblFabricantes :msgGlobal" />
-					<p:commandButton value="Cancelar"
+					<p:commandButton value="Cancelar" process="@this"
 						onclick="PF('dlgFabNovo').hide();" />
 				</h:panelGrid>
 			</h:form>
@@ -95,7 +95,7 @@
 						actionListener="#{MBFabricante.excluir}"
 						oncomplete="PF('dlgFabExcluir').hide(); tabelaFabricantes.clearFilters();"
 						update=":frmFabListagem:tblFabricantes :msgGlobal" />
-					<p:commandButton value="Cancelar"
+					<p:commandButton value="Cancelar" process="@this"
 						onclick="PF('dlgFabExcluir').hide();" />
 				</h:panelGrid>
 			</h:form>
@@ -121,7 +121,7 @@
 									 actionListener="#{MBFabricante.editar}"
 									 oncomplete="verificar(xhr, status, args, 'dlgFabEditar', 'tabelaFabricantes');" 
 									 update=":frmFabListagem:tblFabricantes :msgGlobal" />
-					<p:commandButton value="Camcelar" 
+					<p:commandButton value="Camcelar" process="@this"
 									 onclick="PF('dlgFabEditar').hide();"/>
 				</h:panelGrid>
 			</h:form>		
